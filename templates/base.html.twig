@@ -1,12 +1,115 @@
-<!DOCTYPE html>
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+	<head>
+		<title>Videostube Website Template | Home :: W3layouts</title>
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('web/images/pageicon.png')}}" />
+		<link href="{{ asset('web/css/style.css')}}" rel="stylesheet" type="text/css"  media="all" />
+		<meta name="keywords" content="Videostube iphone web template, Android web template, Smartphone web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+		<link href='//fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+  </head>
+	<body>
+  
+    {% block nav %}
+	<!----start-wrap---->
+	<div class="wrap">
+		<!----start-Header---->
+		<div class="header">
+			<!----start-Logo---->
+			<div class="logo">
+				<a href="index.html"><img src="{{ asset('web/images/logo.png')}}" title="logo" /></a>
+			</div>
+			<!----End-Logo---->
+			<!----start-top-nav---->
+			<div class="top-nav">
+				<ul>
+					<li><a href="index.html">Home</a><p>My Frontpage</p></li>
+					<li><a href="#">About</a><p>About this blog</p></li>
+					<li><a href="categories.html">Categories</a><p>Be Ur Self</p></li>
+					<li><a href="#">Economics</a><p>Human Needs</p></li>
+					<li><a href="#">Health</a><p>Take A Trip</p></li>
+					<li><a href="contact.html">Contact</a><p>Leave Messages</p></li>
+				</ul>
+			</div>
+			<div class="clear"> </div>
+			<!----End-top-nav---->
+{% endblock %}
+{% block body %}
+{% endblock %}
+{% block footer %}
+
+<div class="footer">
+  <div class="wrap"> 
+  <div class="box1">
+  <h4>Ur's Account</h4>
+      <ul>
+        <li><a href="#">My Channel</a></li>
+        <li><a href="#">Subscription</a></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Favourites</a></li>
+        <li><a href="#">Add</a></li>
+        <li><a href="#">Ur-specials</a></li>
+        <li><a href="#">Submission Rules</a></li>
+      </ul>
+  </div>
+  <div class="box1">
+  <h4>Policy & Terms</h4>
+      <ul>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Submission Rules</a></li>
+        <li><a href="#">Company Buzz</a></li>
+        <li><a href="#">My Staff</a></li>
+        <li><a href="#">Moodle Hosting</a></li>
+        <li><a href="#">OpenCart Hosting</a></li>
+      </ul>
+  </div>
+  <div class="box1">
+  <h4>Community</h4>
+      <ul>
+        <li><a href="#">Standard Support</a></li>
+        <li><a href="#">Premier Support</a></li>
+        <li><a href="#">Support Center</a></li>
+        <li><a href="#">Host Affiliate</a></li>
+        <li><a href="#">Infographics</a></li>
+        <li><a href="#">indian Hosting</a></li>
+        <li><a href="#">Green Web Hosting</a></li>
+      </ul>
+  </div>
+  <div class="box1">
+    <div class="hide-box">
+  <h4>About Us</h4>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Guarantee</a></li>
+        <li><a href="#">Link to Us</a></li>
+        <li><a href="#">We're Hiring</a></li>
+      </ul>
+  </div>
+    </div>
+  <div class="box1">
+  <h4>Stay in touch on</h4>
+      <ul class="social">
+        <li><img src="{{ asset('web/images/facebook.png')}}" title="facebook"><a href="#">Facebook</a></li>
+        <li><img src="{{ asset('web/images/twitter.png')}}" title="twitter"><a href="#">Twitter</a></li>
+        <li><img src="{{ asset('web/images/gplus.png')}}" title="google+"><a href="#">Google+</a></li>
+      </ul>
+  </div>
+  <div class="clear"> </div>
+</div>
+</div>
+<div class="clear"> </div>
+<div class="copy-right">
+<p>&#169 2013 Videostube. All Rights Reserved | Design by &nbsp;<a href="http://w3layouts.com">W3Layouts</a></p>
+</div>
+</div>
+
+{% endblock%}
