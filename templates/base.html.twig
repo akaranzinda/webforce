@@ -1,12 +1,175 @@
+<!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <!-- Title -->
+        <title>Enlighten - Professional Bootstrap Template</title>
+        <!-- Meta -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <!-- Favicon -->
+        <link href="favicon.ico" rel="shortcut icon">
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css')}}" rel="stylesheet">
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/nexus.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/responsive.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/custom.css')}}" rel="stylesheet">
+        <!-- Google Fonts-->
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
     </head>
+    
     <body>
+        {% block header %}
+            <div id="body_bg">
+            <div id="pre_header" class="container">
+                <div class="row margin-top-10 visible-lg">
+                    <div class="col-md-6">
+                        <p>
+                            <strong>Phone:</strong>&nbsp;1-800-123-4567</p>
+                    </div>
+                    <div class="col-md-6 text-right">
+                    
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <p>{{ app.user.username }} || <a href=" {{ path('fos_user_security_logout')}} ">Se deconnecter</a> </p>
+                    {% else %}
+                        <a href=" {{ path('fos_user_security_login')}} ">Se connecter</a>
+                    {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="primary-container-group">
+                <!-- Background -->
+                <div class="primary-container-background">
+                    <div class="primary-container"></div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--End Background -->
+                <div class="primary-container">
+                    <div id="header" class="container">
+                        <div class="row">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="{{ path('etudiant_new')}}" title="">
+                                    <img src="{{asset('assets/img/logo.png')}}" alt="Logo" />
+                                </a>
+                            </div>
+                            <!-- End Logo -->
+                            <ul class="social-icons pull-right hidden-xs">
+                                <li class="social-rss">
+                                    <a href="#" target="_blank" title="RSS"></a>
+                                </li>
+                                <li class="social-twitter">
+                                    <a href="#" target="_blank" title="Twitter"></a>
+                                </li>
+                                <li class="social-facebook">
+                                    <a href="#" target="_blank" title="Facebook"></a>
+                                </li>
+                                <li class="social-googleplus">
+                                    <a href="#" target="_blank" title="GooglePlus"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Top Menu -->
+                    <div id="hornav" class="container no-padding">
+                        <div class="row">
+                            <div class="col-md-12 no-padding">
+                                <div class="pull-right visible-lg">
+                                    <ul id="hornavmenu" class="nav navbar-nav">
+                                        <li>
+                                            <a href="{{ path('friends_new')}}" class="fa-home">Home</a>
+                                        </li>
+                                        <li>
+                                            <span class="fa-gears">Mes amis</span>
+                                            <ul>
+                                                <li class="parent">
+                                                    <span>Membre</span>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="{{ path('friends_new')}}">Ajout </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ path('friends_index')}}">Liste</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="fa-copy">Etudiants</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ path('etudiant_index')}}">Liste</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('etudiant_new')}}">Ajout</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="fa-th">Portfolio</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="portfolio-2-column.html">2 Column</a>
+                                                </li>
+                                                <li>
+                                                    <a href="portfolio-3-column.html">3 Column</a>
+                                                </li>
+                                                <li>
+                                                    <a href="portfolio-4-column.html">4 Column</a>
+                                                </li>
+                                                <li>
+                                                    <a href="portfolio-6-column.html">6 Column</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="fa-font">Blog</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="blog-list.html">Blog</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-single.html">Blog Single Item</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html" class="fa-comment">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        {% endblock %}
         {% block body %}{% endblock %}
+        {% block footer %}
+            <div class="card text-center">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                </div>
+            </div>
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
