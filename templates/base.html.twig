@@ -34,16 +34,21 @@
             <div id="pre_header" class="container">
                 <div class="row margin-top-10 visible-lg">
                     <div class="col-md-6">
-                        <p>
+                    <p>
                             <strong>Phone:</strong>&nbsp;1-800-123-4567</p>
                     </div>
                     <div class="col-md-6 text-right">
+                        <P>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <a href=" {{ path('fos_user_profile_show')}} "> {{ app.user.username }} </a>
+
+                            || <a href=" {{ path('fos_user_security_logout')}} ">Se deconnecter</a> 
+                        </P>
+                            {% else %}
+                            <a href=" {{ path('fos_user_security_login')}} ">Se connecter</a>
+                            {% endif %}
+                    </p>
                     
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <p>{{ app.user.username }} || <a href=" {{ path('fos_user_security_logout')}} ">Se deconnecter</a> </p>
-                    {% else %}
-                        <a href=" {{ path('fos_user_security_login')}} ">Se connecter</a>
-                    {% endif %}
                         
                     </div>
                 </div>
@@ -154,7 +159,29 @@
                         </div>
                     </div>
         {% endblock %}
+
+        {% block Error %}
+        
+            {% for error in app.flashes('danger') %}
+                   <div class="danger alert alert-danger">
+                        {{ error }}
+                   </div> 
+            {% endfor %}
+
+        {% endblock %}
+        
+        {% block Success %}
+        
+            {% for success in app.flashes('success') %}
+                   <div class="success alert alert-success">
+                        {{ success }}
+                   </div> 
+            {% endfor %}
+
+        {% endblock %}
+
         {% block body %}{% endblock %}
+       
         {% block footer %}
             <div class="card text-center">
                 <div class="card-header">
