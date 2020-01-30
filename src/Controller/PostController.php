@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Entity\Comment;
+use App\Form\CommentType;
+
 /**
  * @Route("/post")
  */
@@ -64,10 +67,30 @@ class PostController extends AbstractController
     /**
      * @Route("/{id}", name="post_show", methods={"GET"})
      */
-    public function show(Post $post): Response
+    public function show(Post $post, Request $request): Response
     {
+
+            $comment = new Comment(); // traitemen de création de formulaire
+            $form = $this->createForm(CommentType::class, $comment);
+            $form->handleRequest($request);
+    
+            if ($form->isSubmitted() && $form->isValid()) { // si soumission et validation OK
+                $entityManager = $this->getDoctrine()->getManager(); // ouvre la connection à la base
+    
+                $comment->setUser($this->getUser()); // je récupére l'utilisation connecté pour le lier avec le commmentaire
+
+                $comment->setPost($post); // on récupère l'id (post) sur la page
+    
+                    // on peut faire un dump($post) pour voir ce qu'il retourene
+                $entityManager->persist($comment); // récucupère les données saisies par l'utilisateur
+                $entityManager->flush(); // envoie des données  dans la base de données
+
+                return $this->redirectToRoute('comment_index');
+            }
+
         return $this->render('post/show.html.twig', [
             'post' => $post,
+            'form' => $form->createView(),
         ]);
     }
 
